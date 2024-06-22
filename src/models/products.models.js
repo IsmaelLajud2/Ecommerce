@@ -1,7 +1,12 @@
 const {Schema , model} = require('mongoose')
 
 const productSchema = new Schema({
-    
+    userID:{
+        type:Schema.Types.ObjectId ,
+        required :true
+
+        
+    },
     name:{
         type:String,
         required:true
@@ -13,6 +18,11 @@ const productSchema = new Schema({
     category :{
         type : String,
         required:true
+    },
+
+    discount :{
+        type:Number,
+        default:false
     },
     disabled: {
         type:Boolean,

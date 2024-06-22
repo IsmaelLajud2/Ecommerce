@@ -7,6 +7,8 @@ const getAllUserService = async() =>{
 }
 
 const createUserService = async(newUser)=>{
+
+    
  try {
     const {name,surname,email,password,role} = newUser
 

@@ -34,6 +34,7 @@ const UserValidator = {
         .isEmail()
         .withMessage("Debe ingresar un email Valido")
         .not()
+        .isEmpty()
         .withMessage("Este campo es requerido")
         .custom(emailExistValdator)
     ,

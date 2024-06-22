@@ -5,6 +5,8 @@ const { createUserService, getAllUserService, deleteUsersByIdServices, editUserB
 
 const getAllUsers= async (req,res) =>{
     try {
+
+        
         const getUser = await getAllUserService()
     if (!getUser) {
         res.status(404).json("Usuarios no encontrados")
@@ -20,10 +22,13 @@ const getAllUsers= async (req,res) =>{
 
 const createUser = async (req,res) => {
     try {
+    
+    
     const newUser = req.body
     const create = await createUserService(newUser)
+    const authCredential = signToken(create)
 
-    res.status(201).json(create)
+    res.status(201).json(authCredential)
     } catch (error) {
         res.status(500).json(error.message)
     }

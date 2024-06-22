@@ -3,7 +3,7 @@ const Articulos = require('../models/products.models')
 
 const getAllProductsService = async () => {
     try {
-        const product = await Articulos.find()
+        const product = await Articulos.find({disabled:false})
         return product
     } catch (error) {
         throw new Error(error.message)
@@ -17,11 +17,13 @@ const getProductsByIdService =async (id) =>{
         throw new Error(error.message)
     }
 }
-const createProductService = async (newProduct) => {
+const createProductService = async (userToken,newProduct) => {
     try {
         const { name, precio, category, disabled } = newProduct
 
-        const createNewProduct = new Articulos({
+           
+            const createNewProduct = new Articulos({
+            userID :userToken.id,                
             name,
             precio,
             category,

@@ -1,13 +1,18 @@
 const {Router}= require('express')
-const { createProduct, getAllProducts, getByIdProducts, editProductById, deleteByIdProduct } = require('../controllers/product.controllers')
+const { createProduct, getAllProductsAvailable, getByIdProducts, editProductById, deleteByIdProduct, getProductsWithOptions, getAllTypesOfProducts } = require('../controllers/product.controllers')
+const { verifyToken } = require('../helpers/verifyToken')
+const { validationsFields } = require('../validators/user.validator')
+
 const route = Router()
 
 
 
-route.get('/getAll',getAllProducts)
+route.get('/getAvailableProducts',getAllProductsAvailable)
+route.get('/getAllProducts',verifyToken,validationsFields,getAllTypesOfProducts)
 route.get('/getById/:id' ,getByIdProducts)
-route.patch('/edit/:id' ,editProductById)
-route.post('/createProductos' ,createProduct)
+route.get('/sortedProducts/:options?',getProductsWithOptions)
+route.patch('/edit/:id',verifyToken,validationsFields ,editProductById)
+route.post('/createProductos',verifyToken,validationsFields,createProduct)
 route.delete('/delete/:id', deleteByIdProduct)
 
 module.exports = route
