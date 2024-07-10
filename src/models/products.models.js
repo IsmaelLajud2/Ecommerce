@@ -1,37 +1,37 @@
-const {Schema , model} = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const productSchema = new Schema({
-    userID:{
-        type:Schema.Types.ObjectId ,
-        required :true
-
-        
+    //     userID: {
+    //         type: Schema.Types.ObjectId,
+    //  },
+    name: {
+        type: String,
+        required: true
     },
-    name:{
-        type:String,
-        required:true
-    } ,
-    precio :{
-        type:Number,
-        required:true
-    }, 
-    category :{
-        type : String,
-        required:true
+    precio: {
+        type: Number,
+        required: true
     },
-
-    discount :{
-        type:Number,
-        default:false
+    category: {
+        type: String,
+        required: true
+    },
+    imagen: [{
+        type: String,
+        required: true
+    }],
+    discount: {
+        type: Number,
+        default: false
     },
     disabled: {
-        type:Boolean,
-        default:false
+        type: Boolean,
+        default: false
     }
-}, 
-{
-    timestamps:true
-}
+},
+    {
+        timestamps: true
+    }
 )
 
-module.exports= model("Articulos",productSchema)
+module.exports = model("Articulos", productSchema)

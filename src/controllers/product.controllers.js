@@ -65,7 +65,7 @@ const getProductsWithOptions = async (req, res) => {
 
         let queryOptions = {}
 
-        let sortedOptions = {}
+
 
         if (name) {
             queryOptions.name = new RegExp(name, "i")
@@ -74,6 +74,8 @@ const getProductsWithOptions = async (req, res) => {
             queryOptions.category = new RegExp(category, "i")
         }
 
+        queryOptions.disabled = "false"
+        let sortedOptions = {}
         if (options === "price_asc") {
             sortedOptions.precio = 1
         }

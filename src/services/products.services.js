@@ -19,7 +19,7 @@ const getProductsByIdService =async (id) =>{
 }
 const createProductService = async (userToken,newProduct) => {
     try {
-        const { name, precio, category, disabled } = newProduct
+        const { name, precio, category, disabled,imagen } = newProduct
 
            
             const createNewProduct = new Articulos({
@@ -28,6 +28,7 @@ const createProductService = async (userToken,newProduct) => {
             precio,
             category,
             disabled,
+            imagen
         })
 
         const savedProduct = await createNewProduct.save()
