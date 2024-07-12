@@ -9,7 +9,7 @@ const productSchema = new Schema({
         required: true
     },
     precio: {
-        type: Number,
+        type: String,
         required: true
     },
     category: {
@@ -18,7 +18,7 @@ const productSchema = new Schema({
     },
     imagen: [{
         type: String,
-        required: true
+
     }],
     discount: {
         type: Number,

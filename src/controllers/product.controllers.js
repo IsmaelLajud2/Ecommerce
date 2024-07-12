@@ -121,7 +121,7 @@ const createProduct = async (req, res) => {
             res.status(404).json("No se pudo crear")
         }
         await createProductService(userToken, newProduct)
-        res.status(201).json("Producto Creado correctament")
+        res.status(201).json("Producto Creado correctamente")
     } catch (error) {
         console.error('Error al crear el producto:', error);
         res.status(500).json({ message: error.message });
