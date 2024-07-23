@@ -1,9 +1,7 @@
 const { Schema, model } = require('mongoose')
 
 const productSchema = new Schema({
-    //     userID: {
-    //         type: Schema.Types.ObjectId,
-    //  },
+
     name: {
         type: String,
         required: true
@@ -17,6 +15,7 @@ const productSchema = new Schema({
         required: true
     },
     imagen: [{
+
         type: String,
 
     }],
